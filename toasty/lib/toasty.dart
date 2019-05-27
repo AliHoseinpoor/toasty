@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:ui';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:meta/meta.dart';
@@ -16,9 +17,8 @@ class Toasty {
     TOAST_LENGTH length = TOAST_LENGTH.LENGTH_SHORT,
     TOAST_GRAVITY gravity = TOAST_GRAVITY.BOTTOM,
     double fontSize = 15.0,
-    Color fontColor = Colors.white,
-    Color backgroundColor = Colors.black,
-    String fontTypeface,
+    Color fontColor,
+    Color backgroundColor,
   }) async {
     String toastLength = 'short';
     String toastGravity = 'bottom';
@@ -33,14 +33,33 @@ class Toasty {
       toastGravity = 'top';
     }
 
+    if (fontColor == null &&
+        backgroundColor == null &&
+        defaultTargetPlatform == TargetPlatform.android) {
+      fontColor = Colors.black;
+      backgroundColor = Colors.grey.shade300;
+    } else if (fontColor == null &&
+        backgroundColor == null &&
+        defaultTargetPlatform == TargetPlatform.iOS) {
+      fontColor = Colors.white;
+      backgroundColor = Colors.black.withOpacity(0.9);
+    } else if (fontColor == null && defaultTargetPlatform == TargetPlatform.android) {
+      fontColor = Colors.black;
+    } else if (fontColor == null && defaultTargetPlatform == TargetPlatform.iOS) {
+      fontColor = Colors.white;
+    } else if (backgroundColor == null && defaultTargetPlatform == TargetPlatform.android) {
+      backgroundColor = Colors.grey.shade300;
+    } else if (backgroundColor == null && defaultTargetPlatform == TargetPlatform.iOS) {
+      backgroundColor = Colors.black.withOpacity(0.9);
+    }
+
     final Map<String, dynamic> datas = <String, dynamic>{
       'message': message,
       'length': toastLength,
       'gravity': toastGravity,
       'font_size': fontSize,
-      'font_color': fontColor,
-      'back_color': backgroundColor,
-      'type_face': fontTypeface,
+      'font_color': fontColor.value,
+      'back_color': backgroundColor.value,
     };
 
     await _channel.invokeMethod('showToast', datas);
