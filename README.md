@@ -39,6 +39,7 @@ Toasty.showToast(
 | fontColor | Colors.white <br/> (if passing null to fontColor if your device is iOs defualt fontColor is White but if your device is Android your defualt fontColor is Black                                                 |
 | backgroundColor         | Colors.grey  <br/> (if passing null to backgroundColor if your device is iOs defualt backgroundColor is Colors.black.withOpacity(0.9) but if your device is Android your defualt backgroundColor is Colors.grey.shade300                                                     |
 | fontSize       | 16.0 (double) <br/> (defualt value is 15.0)                                                      |
+| timeInSecForIos       | for length of toast in iOS (second) (defualt value is 1)                                              |
 
 <br/>
 
