@@ -23,16 +23,17 @@ class _MyAppState extends State<MyApp> {
         ),
         body: Center(
           child: new RaisedButton(
-            onPressed: () {
+            onPressed: () async {
               Toasty.showToast(
-                message: 'ali hoeinpoor',
-                backgroundColor: Colors.black,
-                fontColor: Colors.white,
+                message: 'this is a message',
+                length: TOAST_LENGTH.LENGTH_SHORT,
                 gravity: TOAST_GRAVITY.BOTTOM,
-                length: TOAST_LENGTH.LENGTH_LONG,
+                fontColor: Colors.white,
+                backgroundColor: Colors.grey.shade300,
+                fontSize: 15,
               );
             },
-            child: new Text('toast'),
+            child: new Text('Toast'),
           ),
         ),
       ),

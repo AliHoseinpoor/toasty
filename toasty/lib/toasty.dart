@@ -11,6 +11,8 @@ enum TOAST_GRAVITY { BOTTOM, CENTER, TOP }
 
 class Toasty {
   static const MethodChannel _channel = const MethodChannel('toasty');
+  static String toastLength = 'short';
+  static String toastGravity = 'bottom';
 
   static Future<void> cancel() async {
     await _channel.invokeMethod('cancel');
@@ -24,18 +26,8 @@ class Toasty {
     Color fontColor,
     Color backgroundColor,
   }) async {
-    String toastLength = 'short';
-    String toastGravity = 'bottom';
-
-    if (length == TOAST_LENGTH.LENGTH_LONG) {
-      toastLength = 'long';
-    }
-
-    if (gravity == TOAST_GRAVITY.CENTER) {
-      toastGravity = 'center';
-    } else if (gravity == TOAST_GRAVITY.TOP) {
-      toastGravity = 'top';
-    }
+    toastLength = calculateLength(length);
+    toastGravity = calculateGravity(gravity);
 
     if (fontColor == null &&
         backgroundColor == null &&
@@ -69,4 +61,91 @@ class Toasty {
     await _channel.invokeMethod('showToast', datas);
   }
 
+  static Future<void> successToast({
+    @required String message,
+    TOAST_LENGTH length = TOAST_LENGTH.LENGTH_SHORT,
+    TOAST_GRAVITY gravity = TOAST_GRAVITY.BOTTOM,
+    Color fontColor = Colors.white,
+    double fontSize = 14.0,
+    int iconSize = 16,
+    Color iconColor = Colors.white,
+  }) async {
+    toastLength = calculateLength(length);
+    toastGravity = calculateGravity(gravity);
+
+    final Map<String, dynamic> datas = <String, dynamic>{
+      'message': message,
+      'length': toastLength,
+      'gravity': toastGravity,
+      'font_size': fontSize,
+      'font_color': fontColor.value,
+      'icon_color': iconColor.value,
+      'icon_size': iconSize,
+    };
+
+    await _channel.invokeMethod('successToast', datas);
+  }
+
+  static Future<void> errorToast({
+    @required String message,
+    TOAST_LENGTH length = TOAST_LENGTH.LENGTH_SHORT,
+    TOAST_GRAVITY gravity = TOAST_GRAVITY.BOTTOM,
+    double fontSize = 14.0,
+    int iconSize = 16,
+    Color fontColor = Colors.white,
+    Color iconColor = Colors.white,
+  }) async {
+    toastLength = calculateLength(length);
+    toastGravity = calculateGravity(gravity);
+
+    final Map<String, dynamic> datas = <String, dynamic>{
+      'message': message,
+      'length': toastLength,
+      'gravity': toastGravity,
+      'font_size': fontSize,
+      'font_color': fontColor.value,
+      'icon_color': iconColor.value,
+      'icon_size': iconSize,
+    };
+
+    await _channel.invokeMethod('errorToast', datas);
+  }
+
+  static Future<void> warningToast({
+    @required String message,
+    TOAST_LENGTH length = TOAST_LENGTH.LENGTH_SHORT,
+    TOAST_GRAVITY gravity = TOAST_GRAVITY.BOTTOM,
+    double fontSize = 14.0,
+    int iconSize = 16,
+    Color fontColor = Colors.white,
+    Color iconColor = Colors.white,
+  }) async {
+    toastLength = calculateLength(length);
+    toastGravity = calculateGravity(gravity);
+
+    final Map<String, dynamic> datas = <String, dynamic>{
+      'message': message,
+      'length': toastLength,
+      'gravity': toastGravity,
+      'font_size': fontSize,
+      'font_color': fontColor.value,
+      'icon_color': iconColor.value,
+      'icon_size': iconSize,
+    };
+
+    await _channel.invokeMethod('warningToast', datas);
+  }
+
+  static String calculateLength(TOAST_LENGTH length) =>
+      length == TOAST_LENGTH.LENGTH_LONG ? 'long' : 'short';
+
+  static String calculateGravity(TOAST_GRAVITY gravity){
+    if (gravity == TOAST_GRAVITY.CENTER) {
+      return 'center';
+    } else if (gravity == TOAST_GRAVITY.TOP) {
+      return 'top';
+    }else{
+      return 'bottom';
+    }
+  }
 }
