@@ -1,4 +1,5 @@
 # [toasty](https://pub.dartlang.org/packages/toasty)
+[![pub package](version_image.svg)](https://pub.dartlang.org/packages/toasty)
 
 A Flutter Library For Show Toast In Android And Ios
 > Supported Platforms
@@ -66,6 +67,39 @@ Toasty.cancel()
 <br/>
 
 ## Preview Images
+
+<img src="https://raw.githubusercontent.com/AliHoseinpoor/toasty/master/screenshot/1.jpg" width="300px" />                                                                                                                
+<img src="https://raw.githubusercontent.com/AliHoseinpoor/toasty/master/screenshot/2.jpg" width="300px" />                                                                                                                
+<img src="https://raw.githubusercontent.com/AliHoseinpoor/toasty/master/screenshot/3.jpg" width="300px" />                                                                                                                
+<img src="https://raw.githubusercontent.com/AliHoseinpoor/toasty/master/screenshot/4.jpg" width="300px" />                                                                                                                
+<img src="https://raw.githubusercontent.com/AliHoseinpoor/toasty/master/screenshot/5.jpg" width="300px" />                                                                                                                
+<img src="https://raw.githubusercontent.com/AliHoseinpoor/toasty/master/screenshot/6.jpg" width="300px" />                                                                                                                
+<img src="https://raw.githubusercontent.com/AliHoseinpoor/toasty/master/screenshot/7.jpg" width="300px" /> 
+
+<br/>
+
+## Functions
+
+```dart
+Future<void> cancel();
+```
+
+```dart
+Future<void> showToast();
+```
+
+```dart
+Future<void> successToast();
+```
+
+```dart
+Future<void> errorToast();
+```
+
+```dart
+Future<void> warningToast();
+```
+
 
                                                                                                                
 
