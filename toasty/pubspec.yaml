@@ -44,16 +44,16 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  fonts:
-  - family: Montserrat
-    fonts:
-    - asset: assets/Montserrat-Regular.ttf
-    - asset: assets/Montserrat-Bold.ttf
-  #           style: italic
-  - family: Quicksand
-    fonts:
-    - asset: assets/Quicksand-Regular.otf
-    - asset: assets/Quicksand-Bold.otf
+#  fonts:
+#  - family: Montserrat
+#    fonts:
+#    - asset: assets/Montserrat-Regular.ttf
+#    - asset: assets/Montserrat-Bold.ttf
+#  #           style: italic
+#  - family: Quicksand
+#    fonts:
+#    - asset: assets/Quicksand-Regular.otf
+#    - asset: assets/Quicksand-Bold.otf
   #           weight: 700
   #
   # For details regarding fonts in packages, see

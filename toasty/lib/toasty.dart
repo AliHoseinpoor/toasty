@@ -12,6 +12,10 @@ enum TOAST_GRAVITY { BOTTOM, CENTER, TOP }
 class Toasty {
   static const MethodChannel _channel = const MethodChannel('toasty');
 
+  static Future<void> cancel() async {
+    await _channel.invokeMethod('cancel');
+  }
+
   static Future<void> showToast({
     @required String message,
     TOAST_LENGTH length = TOAST_LENGTH.LENGTH_SHORT,
@@ -64,4 +68,5 @@ class Toasty {
 
     await _channel.invokeMethod('showToast', datas);
   }
+
 }

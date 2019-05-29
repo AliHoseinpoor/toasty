@@ -20,6 +20,7 @@ import io.flutter.plugin.common.PluginRegistry.Registrar;
  */
 public class ToastyPlugin implements MethodCallHandler {
     private Context context;
+    private Toast toast;
 
     private ToastyPlugin(Context context) {
         this.context = context;
@@ -41,7 +42,7 @@ public class ToastyPlugin implements MethodCallHandler {
                 Number fontColor = call.argument("font_color");
                 Number backColor = call.argument("back_color");
 
-                Toast toast = Toast.makeText(context, message, length.equals("short") ? Toast.LENGTH_SHORT : Toast.LENGTH_LONG);
+                toast = Toast.makeText(context, message, length.equals("short") ? Toast.LENGTH_SHORT : Toast.LENGTH_LONG);
                 View view = toast.getView();
                 TextView toastMessage = (TextView) view.findViewById(android.R.id.message);
 
@@ -73,6 +74,13 @@ public class ToastyPlugin implements MethodCallHandler {
 
                 toast.show();
                 break;
+
+            case "cancel" :
+                if (toast != null){
+                    toast.cancel();
+                }
+                break;
+
         }
     }
 }
