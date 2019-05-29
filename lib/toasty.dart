@@ -25,6 +25,7 @@ class Toasty {
     double fontSize = 15.0,
     Color fontColor,
     Color backgroundColor,
+    int timeInSecForIos = 1,
   }) async {
     toastLength = calculateLength(length);
     toastGravity = calculateGravity(gravity);
@@ -56,6 +57,7 @@ class Toasty {
       'font_size': fontSize,
       'font_color': fontColor.value,
       'back_color': backgroundColor.value,
+      'time': timeInSecForIos,
     };
 
     await _channel.invokeMethod('showToast', datas);
