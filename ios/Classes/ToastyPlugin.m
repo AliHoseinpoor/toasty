@@ -87,7 +87,7 @@ static NSString *const CHANNEL_NAME = @"toasty";
                                                                                            style:style
                                                                                            ];
         }
-        result([NSNumber numberWithBool:true]);
+        result(void);
 
     } else {
         result(FlutterMethodNotImplemented);
