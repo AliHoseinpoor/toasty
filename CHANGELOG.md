@@ -1,3 +1,5 @@
+## toasty 0.0.2
+some bug fix in this version
 ## toasty 0.0.1
 
 ## Platform Specifics
