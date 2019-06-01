@@ -1,10 +1,8 @@
 import 'dart:async';
 import 'dart:ui';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:meta/meta.dart';
 
 enum TOAST_LENGTH { LENGTH_SHORT, LENGTH_LONG }
 enum TOAST_GRAVITY { BOTTOM, CENTER, TOP }
