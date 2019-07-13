@@ -11,7 +11,7 @@ A Flutter Library For Show Toast In Android And Ios
 
 ```yaml
 # add the below line to your pubspec.yaml dependencies
-toasty: 0.0.1
+toasty: 0.0.3
 ```
 
 ```dart

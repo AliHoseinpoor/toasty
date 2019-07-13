@@ -1,3 +1,6 @@
+## toasty 0.0.3
+bug fix in java code and improve performance
+
 ## toasty 0.0.2
 some bug fix in this version
 ## toasty 0.0.1

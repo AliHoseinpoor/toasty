@@ -19,6 +19,6 @@
     </text>
     <text x="165" y="140" transform="scale(.1)" textLength="210">pub</text>
     
-    <text x="525" y="140" transform="scale(.1)" textLength="350">v 0.0.1</text>
+    <text x="525" y="140" transform="scale(.1)" textLength="350">v 0.0.3</text>
   </g>
 </svg>
